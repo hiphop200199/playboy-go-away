@@ -1,8 +1,11 @@
-const express = require('express')
+const express = require('express');
 const mongoose = require('mongoose'); 
 const Record = require('./models/Record');
 const cors = require('cors');
-const app = express()
+const app = express();
+
+app.use(express.json());
+app.use(cors());
 
 const dbURI = 'mongodb+srv://eric:hiphop200199@cluster0.yqpvasi.mongodb.net/playboy-go-away?retryWrites=true&w=majority'
 mongoose.connect(dbURI,{
@@ -11,8 +14,7 @@ mongoose.connect(dbURI,{
 }).then(()=>console.log('connected to mongodb successed.')).catch((err)=>console.log(err))
 
 
-app.use(express.json());
-app.use(cors());
+
 app.post('/add-record',(req,res)=>{
    
     const record = new Record({
