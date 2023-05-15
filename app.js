@@ -1,15 +1,18 @@
 const express = require('express')
 const mongoose = require('mongoose'); 
-const Record = require('./models/record');
-
+const Record = require('./models/Record');
+const cors = require('cors');
 const app = express()
 
 const dbURI = 'mongodb+srv://eric:hiphop200199@cluster0.yqpvasi.mongodb.net/playboy-go-away?retryWrites=true&w=majority'
-mongoose.connect(dbURI).then(()=>app.listen(3000)).catch((err)=>console.log(err))
+mongoose.connect(dbURI,{
+	useNewUrlParser: true, 
+	useUnifiedTopology: true 
+}).then(()=>console.log('connected to mongodb successed.')).catch((err)=>console.log(err))
 
 
 app.use(express.json());
-
+app.use(cors());
 app.post('/add-record',(req,res)=>{
    
     const record = new Record({
@@ -24,10 +27,7 @@ app.post('/add-record',(req,res)=>{
 })
 
 app.get('/read-records',(req,res)=>{
-    Record.find().then(result=>res.send(result.json())).catch(err=>console.log(err))
+    Record.find().then(data=>res.json(data)).catch(err=>console.log(err))
 })
 
-app.use((req,res)=>{
-    res.status(404).send('<h1>404</h1>');
-    
-})
+app.listen(3001);

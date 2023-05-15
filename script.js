@@ -78,7 +78,7 @@ finishButton.addEventListener("click",function(){
     }
     resultScore.innerText = `${personName}的分數是${counter.innerText}分!`;
     counter.style.display='none';
-    fetch(':3000/add-record',{
+    fetch('/add-record',{
         method:'POST',
         headers: {
             "Content-Type": "application/json" 
@@ -166,7 +166,7 @@ recordsButton.addEventListener("click",function(){
     red = Math.random()*255;
     green = Math.random()*255;
     blue = Math.random()*255;
-   fetch(':3000/read-records').then(res =>res.json()).then(data=>{
+   fetch('/read-records').then(res =>res.json()).then(data=>{
     recordsArea.innerHTML = data.map((row,i) =>{
         let {name,score,description,date} = row;
         return(
