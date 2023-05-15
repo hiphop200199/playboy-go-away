@@ -4,6 +4,7 @@
   "description": "help people to get away from playboy",
   "main": "index.html",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

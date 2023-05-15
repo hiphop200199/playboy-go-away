@@ -5,6 +5,7 @@ const finishButton =document.getElementById("finished");
 const nextButtons = document.querySelectorAll(".next");
 const previousButtons = document.querySelectorAll(".prev");
 const backToHomepageButton = document.getElementById("back-to-homepage");
+const homepageButton =document.getElementById("homepage");
 const checkboxes = document.querySelectorAll("[type=checkbox]");
 const recordsButton =document.getElementById("records");
 let red = Math.random()*255;
@@ -77,7 +78,7 @@ finishButton.addEventListener("click",function(){
     }
     resultScore.innerText = `${personName}的分數是${counter.innerText}分!`;
     counter.style.display='none';
-    fetch('http:localhost:3000/add-record',{
+    fetch('/add-record',{
         method:'POST',
         headers: {
             "Content-Type": "application/json" 
@@ -123,6 +124,23 @@ backToHomepageButton.addEventListener("click",function(){
             checkboxes[i].checked=false;
     }
 })
+homepageButton.addEventListener("click",function(){
+    red = Math.random()*255;
+    green = Math.random()*255;
+    blue = Math.random()*255;
+    recordsPage.style.display='none';
+    finalPage.style.display='none';
+    infoPage.style.display='flex';
+    startButton.style.display='inline';
+    cancelButton.style.display='none';
+    counter.style.display='none';
+    this.style.display='none';
+    totalScore=0;
+    nameField.value='';
+    for(let i=0;i<checkboxes.length;i++){
+            checkboxes[i].checked=false;
+    }
+})
 nameField.addEventListener("input",e => personName = e.target.value);
 for(let i=0;i<checkboxes.length;i++){
     checkboxes[i].addEventListener("change",function(){
@@ -140,12 +158,15 @@ recordsButton.addEventListener("click",function(){
     for(let i=0;i<questions.length;i++){
         questions[i].style.display='none';
     }
+    startButton.style.display='none';
+    cancelButton.style.display='none';
+    homepageButton.style.display='inline';
     finalPage.style.display='none';
     recordsPage.style.display='block';
     red = Math.random()*255;
     green = Math.random()*255;
     blue = Math.random()*255;
-   fetch('http:localhost:3000/read-records').then(res =>res.json()).then(data=>{
+   fetch('/read-records').then(res =>res.json()).then(data=>{
     recordsArea.innerHTML = data.map((row,i) =>{
         let {name,score,description,date} = row;
         return(
@@ -183,7 +204,7 @@ angleRotate();
 
 
 function angleRotate(){
-    container.style.backgroundImage = `linear-gradient(${angle}deg,rgba(${red}, ${green}, ${blue}, 0.105),rgba(${red}, ${green}, ${blue}, 0.476))`;
+    container.style.backgroundImage = `linear-gradient(${angle}deg,rgba(${red}, ${green}, ${blue}, 0.105),rgba(${red}, ${green}, ${blue}, 0.496))`;
     angle++;
     requestAnimationFrame(angleRotate);
     if(angle==360)angle=0;

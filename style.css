@@ -256,10 +256,10 @@ body .container .final-result #back-to-homepage {
 body .container .final-result #back-to-homepage:hover {
   filter: brightness(125%) saturate(125%);
 }
-body .container .buttons #cancel {
+body .container .buttons #homepage, body .container .buttons #cancel {
   display: none;
 }
-body .container .buttons .button, body .container .buttons #cancel {
+body .container .buttons .button, body .container .buttons #cancel, body .container .buttons #homepage {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
@@ -274,7 +274,7 @@ body .container .buttons .button, body .container .buttons #cancel {
   box-shadow: 1px 1px 2px rgb(255, 115, 1);
   transition: 0.3s;
 }
-body .container .buttons .button:hover, body .container .buttons #cancel:hover {
+body .container .buttons .button:hover, body .container .buttons #cancel:hover, body .container .buttons #homepage:hover {
   filter: brightness(125%) saturate(125%);
 }
 

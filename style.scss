@@ -234,10 +234,10 @@ body{
             }
         }
         .buttons{
-             #cancel{
+             #homepage,#cancel{
                 display: none;
              }
-            .button,#cancel{
+            .button,#cancel,#homepage{
                 user-select: none;
                 cursor: pointer;
                 margin: 2vmax 1vmax;
