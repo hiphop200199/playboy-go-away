@@ -1,0 +1,24 @@
+{
+  "name": "playboy-go-away",
+  "version": "1.0.0",
+  "description": "help people to get away from playboy",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hiphop200199/playboy-go-away.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hiphop200199/playboy-go-away/issues"
+  },
+  
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongodb": "^5.5.0",
+    "mongoose": "^7.1.1"
+  }
+}

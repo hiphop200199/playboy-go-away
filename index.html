@@ -16,6 +16,18 @@
     <div class="container">
       <h1 class="app-name">渣男警報器&#x26D4;</h1>
       <button id="records">過往紀錄</button>
+      <p id="counter"></p>
+      <table class="records-table">
+        <thead>
+          <tr>
+            <th>名字</th>
+            <th>分數</th>
+            <th>描述</th>
+            <th>日期</th>
+          </tr>
+        </thead>
+        <tbody id="records-area"></tbody>
+      </table>
       <article class="info">
         <h2 class="info-title">使用說明</h2>
         <p class="info-article">
@@ -45,37 +57,148 @@
           </tbody>
         </table>
       </article>
-      <section class="questions"></section>
-      <!--這個人的名字-->
-      <section class="questions"></section>
-      <!--習慣性搞曖昧-->
-      <section class="questions"></section>
-      <!--非常自私-->
-      <section class="questions"></section>
-      <!--不負責任/沒擔當-->
-      <section class="questions"></section>
-      <!--常常欺騙/說謊-->
-      <section class="questions"></section>
-      <!--有劈腿跡象-->
-      <section class="questions"></section>
-      <!--沒有上進心-->
-      <section class="questions"></section>
-      <!--暴力，包含肢體、言語-->
-      <section class="questions"></section>
-      <!--常常失蹤-->
-      <section class="questions"></section>
-      <!--總是一直花你的錢，佔便宜-->
-      <section class="questions"></section>
-      <!--掌控慾極高，想要完全掌控你-->
-      <section class="questions"></section>
-      <!--無止盡地挑剔你-->
-      <section class="questions"></section>
-      <!--過度誇張的自信?-->
-      <section class="questions"></section>
-      <!--利用女生容易心軟-->
-      <section class="questions"></section>
-      <!--毛手毛腳-->
+      <section class="questions">
+        <h2 class="question-title">請問他叫什麼名字?</h2>
+        <input class="field" type="text" id="name-field" placeholder="..."/>
+          <button class="next">下一題</button>
+      </section>
+      <section class="questions">
+        <h2 class="question-title">他會習慣性搞曖昧?</h2>
+        <label><input class="field" type="checkbox" value="2"/>符合者請勾選</label>
+        <section class="buttons">
+          <button class="prev">上一題</button>
+          <button class="next">下一題</button>
+        </section>
+       
+      </section>
+      <section class="questions">
+        <h2 class="question-title">他非常自私?</h2>
+        <label><input class="field" type="checkbox" value="1" />符合者請勾選</label>
+        <section class="buttons">
+          <button class="prev">上一題</button>
+          <button class="next">下一題</button>
+        </section>
+      </section>
+      <section class="questions">
+        <h2 class="question-title">他很不負責任，沒擔當?</h2>
+        <label><input class="field" type="checkbox" value="1" />符合者請勾選</label>
+        <section class="buttons">
+          <button class="prev">上一題</button>
+          <button class="next">下一題</button>
+        </section>
+      </section>
+      <section class="questions">
+        <h2 class="question-title">他常常欺騙,說謊?</h2>
+        <label><input class="field" type="checkbox" value="2" />符合者請勾選</label>
+        <section class="buttons">
+          <button class="prev">上一題</button>
+          <button class="next">下一題</button>
+        </section>
+      </section>
+      <section class="questions">
+        <h2 class="question-title">看起來好像有..劈腿?</h2>
+        <label><input class="field" type="checkbox" value="3" />符合者請勾選</label>
+        <section class="buttons">
+          <button class="prev">上一題</button>
+          <button class="next">下一題</button>
+        </section>
+      </section>
+      <section class="questions">
+        <h2 class="question-title">沒有上進心?</h2>
+        <label><input class="field" type="checkbox" value="1" />符合者請勾選</label>
+        <section class="buttons">
+          <button class="prev">上一題</button>
+          <button class="next">下一題</button>
+        </section>
+      </section>
+      <section class="questions">
+        <h2 class="question-title">會肢體暴力,言語暴力?</h2>
+        <label><input class="field" type="checkbox" value="2" />符合者請勾選</label>
+        <section class="buttons">
+          <button class="prev">上一題</button>
+          <button class="next">下一題</button>
+        </section>
+      </section>
+      <section class="questions">
+        <h2 class="question-title">常常失蹤找不到人?</h2>
+        <label><input class="field" type="checkbox" value="2" />符合者請勾選</label>
+        <section class="buttons">
+          <button class="prev">上一題</button>
+          <button class="next">下一題</button>
+        </section>
+      </section>
+      <section class="questions">
+        <h2 class="question-title">總是一直花你的錢，佔便宜?</h2>
+        <label><input class="field" type="checkbox" value="2" />符合者請勾選</label>
+        <section class="buttons">
+          <button class="prev">上一題</button>
+          <button class="next">下一題</button>
+        </section>
+      </section>
+      <section class="questions">
+        <h2 class="question-title">充滿掌控慾，想完全掌控你?</h2>
+        <label><input class="field" type="checkbox" value="2" />符合者請勾選</label>
+        <section class="buttons">
+          <button class="prev">上一題</button>
+          <button class="next">下一題</button>
+        </section>
+      </section>
+      <section class="questions">
+        <h2 class="question-title">無止盡地挑剔你?</h2>
+        <label><input class="field" type="checkbox" value="1" />符合者請勾選</label>
+        <section class="buttons">
+          <button class="prev">上一題</button>
+          <button class="next">下一題</button>
+        </section>
+      </section>
+      <section class="questions">
+        <h2 class="question-title">過度誇張的自信?</h2>
+        <label><input class="field" type="checkbox" value="1" />符合者請勾選</label>
+        <section class="buttons">
+          <button class="prev">上一題</button>
+          <button class="next">下一題</button>
+        </section>
+      </section>
+      <section class="questions">
+        <h2 class="question-title">常利用女生容易心軟?</h2>
+        <label><input class="field" type="checkbox" value="1" />符合者請勾選</label>
+        <section class="buttons">
+          <button class="prev">上一題</button>
+          <button class="next">下一題</button>
+        </section>
+      </section>
+      <section class="questions">
+        <h2 class="question-title">常常毛手毛腳?</h2>
+        <label><input class="field" type="checkbox" value="1" />符合者請勾選</label>
+        <section class="buttons">
+          <button class="prev">上一題</button>
+          <button class="next">下一題</button>
+        </section>
+      </section>
+      <section class="questions">
+        <h2 class="question-title">不想公開你們的關係?</h2>
+        <label><input class="field" type="checkbox" value="2" />符合者請勾選</label>
+        <section class="buttons">
+          <button class="prev">上一題</button>
+          <button class="next">下一題</button>
+        </section>
+      </section>
+      <section class="questions">
+        <h2 class="question-title">對你的家人無禮?</h2>
+        <label><input class="field" type="checkbox" value="2" />符合者請勾選</label>
+          <section class="buttons">
+            <button class="prev">上一題</button>
+            <button id="finished">結束</button>
+          </section>
+        </section>
+        <article class="final-result">
+          <h2 id="result-score"></h2>
+          <h3 id="result-description"></h3>
+          <button id="back-to-homepage">回到首頁</button>
+          </article>
+      </section>
       <section class="buttons">
+        <button id="cancel">取消</button>
         <button class="button" id="start">開始</button>
         <button class="button" id="exit">離開</button>
       </section>

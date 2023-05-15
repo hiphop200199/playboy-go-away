@@ -21,7 +21,7 @@ body{
         }
         #records{
             position: absolute;
-            right: 3vw;
+            left: 3vw;
             top: 1vh;
             user-select: none;
                 cursor: pointer;
@@ -38,6 +38,39 @@ body{
                     filter: brightness(125%) saturate(125%);
                 }
         }
+        #counter{
+                display: none;
+                position: absolute;
+                right: 3vw;
+                top: 1vh;
+                user-select: none;
+                color: rgb(255, 115, 1);
+                font-size: 80px;
+                text-decoration: underline;
+        }
+        .records-table{
+            display: none;
+            border-collapse: collapse;
+            border: 1px solid rgb(104, 98, 93);
+            margin: 15px;
+            th{
+                padding: 3px 6px;
+                font-size: 26px;
+                background-color: rgb(255, 115, 1);
+                color: white;
+                font-weight: 600;
+                border: 1px solid rgb(104, 98, 93);
+                text-align: center;
+            }
+            td{
+                padding: 3px 6px;
+                font-size: 22px;
+                font-weight: 500;
+                color: rgb(104, 98, 93);
+                border: 1px solid rgb(104, 98, 93);
+                text-align: center;
+            }
+        }
         .info{
             background-color: white;
             box-shadow: 2px 1px 3px 2px rgb(255, 115, 1);
@@ -46,6 +79,7 @@ body{
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            animation: fadeIn 1.5s forwards;
             .info-title,.result-title{
                 user-select: none;
                 font-size: 40px;
@@ -57,7 +91,7 @@ body{
                 font-size: 20px;
                 color: rgb(104, 98, 93);
                 text-align: center;
-                margin: 5px;
+                margin: 4px;
             }
             .result-table{
                 border-collapse: collapse;
@@ -91,8 +125,119 @@ body{
                 }
             }
         }
+        .questions{
+            display: none;
+            background-color: white;
+            box-shadow: 2px 1px 3px 2px rgb(255, 115, 1);
+            width: clamp(200px,35%,550px);
+            height: 500px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            animation: fadeIn 1.5s forwards;
+            .question-title{
+                white-space: nowrap;
+                user-select: none;
+                font-size: 40px;
+                font-weight: 600;
+                color: rgb(104, 98, 93);
+                text-shadow: 2px 1px 2px rgb(104, 98, 93);
+                margin: 5px;
+            }
+            .field{
+                margin: 5px;
+                padding: 5px;
+                font-size: 30px;
+                color: rgb(104, 98, 93);
+                outline: none;
+                border: 3px solid rgb(104, 98, 93);
+                border-radius: 5px;
+                &::placeholder{
+                    color: rgb(104, 98, 93);
+                }
+                &:focus{
+                    border: 3px solid rgb(255, 115, 1);
+                }
+            }
+            label{
+                display: flex;
+                align-items: center;
+                white-space: nowrap;
+                user-select: none;
+                font-size: 30px;
+                font-weight: 600;
+                color: rgb(104, 98, 93);
+                text-shadow: 2px 1px 2px rgb(104, 98, 93);
+                margin: 5px;
+                [type=checkbox]{
+                    accent-color: rgb(255,115,1);
+                    width: 1em;
+                    height: 1em;
+                }
+            }
+           
+            .next,.prev,#finished{
+                user-select: none;
+                cursor: pointer;
+                margin: 2vmax 1vmax;
+                padding: 3px 8px;
+                border-radius: 3px;
+                background-color: rgb(255, 115, 1);
+                color: rgb(241, 230, 221);
+                font-size: 30px;
+                border: none;
+                box-shadow: 1px 1px 2px rgb(255, 115, 1);
+                transition: 0.3s;
+                &:hover{
+                    filter: brightness(125%) saturate(125%);
+                }
+            }
+        }
+        .final-result{
+            display: none;
+            background-color: white;
+            box-shadow: 2px 1px 3px 2px rgb(255, 115, 1);
+            width: clamp(200px,35%,500px);
+            height: 500px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            animation: fadeIn 1.5s forwards;
+            #result-score,#result-description{
+                white-space: nowrap;
+                user-select: none;
+                font-size: 40px;
+                font-weight: 600;
+                color: rgb(104, 98, 93);
+                text-shadow: 2px 1px 2px rgb(104, 98, 93);
+                margin: 5px;
+            }
+            #result-description{
+                white-space: nowrap;
+                font-size: 35px;
+            }
+            #back-to-homepage{
+                user-select: none;
+                cursor: pointer;
+                margin: 2vmax 1vmax;
+                padding: 3px 8px;
+                border-radius: 3px;
+                background-color: rgb(255, 115, 1);
+                color: rgb(241, 230, 221);
+                font-size: 30px;
+                border: none;
+                box-shadow: 1px 1px 2px rgb(255, 115, 1);
+                transition: 0.3s;
+                &:hover{
+                    filter: brightness(125%) saturate(125%);
+                }
+            }
+        }
         .buttons{
-            .button{
+             #cancel{
+                display: none;
+             }
+            .button,#cancel{
                 user-select: none;
                 cursor: pointer;
                 margin: 2vmax 1vmax;
@@ -110,4 +255,9 @@ body{
             }
         }
     }
+}
+
+@keyframes fadeIn {
+    from{opacity: 0.3;}
+    to{opacity: 1;}
 }
