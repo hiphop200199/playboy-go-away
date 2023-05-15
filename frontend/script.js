@@ -136,6 +136,7 @@ homepageButton.addEventListener("click",function(){
     infoPage.style.display='flex';
     startButton.style.display='inline';
     cancelButton.style.display='none';
+    recordsButton.style.display='inline';
     counter.style.display='none';
     this.style.display='none';
     totalScore=0;

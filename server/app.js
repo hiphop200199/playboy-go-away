@@ -4,7 +4,7 @@ const Record = require('./models/Record');
 const cors = require('cors');
 const app = express();
 
-app.use(cors());
+app.use(cors({origin:'https://playboy-go-away-frontend.vercel.app/'}));
 app.use(express.json());
 
 const dbURI = 'mongodb+srv://eric:hiphop200199@cluster0.yqpvasi.mongodb.net/playboy-go-away?retryWrites=true&w=majority'
