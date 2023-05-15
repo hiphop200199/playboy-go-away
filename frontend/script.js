@@ -28,6 +28,7 @@ startButton.addEventListener("click",function(){
     questions[0].style.display='flex';
     infoPage.style.display='none';
     recordsPage.style.display='none';
+    recordsButton.style.display='none';
     counter.style.display='block';
     counter.innerText=totalScore.toString();
     red = Math.random()*255;
@@ -47,6 +48,7 @@ cancelButton.addEventListener("click",function(){
     green = Math.random()*255;
     blue = Math.random()*255;
     startButton.style.display='inline';
+    recordsButton.style.display='inline';
     this.style.display='none';
     nameField.value='';
     for(let i=0;i<checkboxes.length;i++){
@@ -161,6 +163,7 @@ recordsButton.addEventListener("click",function(){
     startButton.style.display='none';
     cancelButton.style.display='none';
     homepageButton.style.display='inline';
+    this.style.display='none';
     finalPage.style.display='none';
     recordsPage.style.display='block';
     red = Math.random()*255;

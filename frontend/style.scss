@@ -14,7 +14,7 @@ body{
         justify-content: space-between;
         .app-name{
             user-select: none;
-         font-size: clamp(50px,10vw,130px);
+         font-size: clamp(40px,10vw,100px);
          font-weight: 700;
          color: rgb(104, 98, 93);
          text-shadow: 2px 1px 3px rgb(104, 93, 93);
@@ -30,7 +30,7 @@ body{
                 border-radius: 3px;
                 background-color: rgb(255, 115, 1);
                 color: rgb(241, 230, 221);
-                font-size: 30px;
+                font-size: clamp(20px,5vw,30px);
                 border: none;
                 box-shadow: 1px 1px 2px rgb(255, 115, 1);
                 transition: 0.3s;
@@ -45,7 +45,7 @@ body{
                 top: 1vh;
                 user-select: none;
                 color: rgb(255, 115, 1);
-                font-size: 80px;
+                font-size: min(6vw,50px);
                 text-decoration: underline;
         }
         .records-table{
@@ -74,7 +74,7 @@ body{
         .info{
             background-color: white;
             box-shadow: 2px 1px 3px 2px rgb(255, 115, 1);
-            width: clamp(200px,35%,500px);
+            width: clamp(250px,35%,500px);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -82,13 +82,13 @@ body{
             animation: fadeIn 1.5s forwards;
             .info-title,.result-title{
                 user-select: none;
-                font-size: 40px;
+                font-size: clamp(25px,5vw,40px);
                 font-weight: 600;
                 color: rgb(104, 98, 93);
                 text-shadow: 2px 1px 2px rgb(104, 98, 93);
             }
             .info-article{
-                font-size: 20px;
+                font-size: clamp(16px,1.5vw,26px);
                 color: rgb(104, 98, 93);
                 text-align: center;
                 margin: 4px;
@@ -108,7 +108,7 @@ body{
                 }
                 th{
                     padding: 3px 6px;
-                    font-size: 22px;
+                    font-size: clamp(18px,2vw,28px);
                     background-color: rgb(255, 115, 1);
                     color: white;
                     font-weight: 600;
@@ -117,7 +117,7 @@ body{
                 }
                 td{
                     padding: 3px 6px;
-                    font-size: 20px;
+                    font-size: clamp(16px,1.5vw,24px);
                     font-weight: 500;
                     color: rgb(104, 98, 93);
                     border: 1px solid rgb(104, 98, 93);
@@ -130,6 +130,7 @@ body{
             background-color: white;
             box-shadow: 2px 1px 3px 2px rgb(255, 115, 1);
             width: clamp(200px,35%,550px);
+            min-width: fit-content;
             height: 500px;
             flex-direction: column;
             align-items: center;
@@ -138,7 +139,7 @@ body{
             .question-title{
                 white-space: nowrap;
                 user-select: none;
-                font-size: 40px;
+                font-size: clamp(20px,5vw,40px);
                 font-weight: 600;
                 color: rgb(104, 98, 93);
                 text-shadow: 2px 1px 2px rgb(104, 98, 93);
@@ -147,7 +148,7 @@ body{
             .field{
                 margin: 5px;
                 padding: 5px;
-                font-size: 30px;
+                font-size: clamp(20px,5vw,35px);
                 color: rgb(104, 98, 93);
                 outline: none;
                 border: 3px solid rgb(104, 98, 93);
@@ -164,7 +165,7 @@ body{
                 align-items: center;
                 white-space: nowrap;
                 user-select: none;
-                font-size: 30px;
+                font-size: clamp(20px,5vw,35px);
                 font-weight: 600;
                 color: rgb(104, 98, 93);
                 text-shadow: 2px 1px 2px rgb(104, 98, 93);
@@ -184,7 +185,7 @@ body{
                 border-radius: 3px;
                 background-color: rgb(255, 115, 1);
                 color: rgb(241, 230, 221);
-                font-size: 30px;
+                font-size: clamp(20px,5vw,35px);
                 border: none;
                 box-shadow: 1px 1px 2px rgb(255, 115, 1);
                 transition: 0.3s;
@@ -224,7 +225,7 @@ body{
                 border-radius: 3px;
                 background-color: rgb(255, 115, 1);
                 color: rgb(241, 230, 221);
-                font-size: 30px;
+                font-size: clamp(20px,5vw,35px);
                 border: none;
                 box-shadow: 1px 1px 2px rgb(255, 115, 1);
                 transition: 0.3s;
@@ -245,7 +246,7 @@ body{
                 border-radius: 3px;
                 background-color: rgb(255, 115, 1);
                 color: rgb(241, 230, 221);
-                font-size: 30px;
+                font-size: clamp(20px,5vw,35px);
                 border: none;
                 box-shadow: 1px 1px 2px rgb(255, 115, 1);
                 transition: 0.3s;
@@ -256,6 +257,35 @@ body{
         }
     }
 }
+@media screen and (width <=1000px){
+    body{
+        .container{
+            #records{
+              position: static;
+            }
+           
+           
+        }
+    }
+}
+@media screen and (width <=400px){
+    body{
+        .container{
+            #counter{
+                top: 15vh;
+            }
+           
+            #counter{
+                left: 50vw;
+                right: 0;
+                font-size: 12vw;
+            }
+        }
+    }
+}
+
+
+
 
 @keyframes fadeIn {
     from{opacity: 0.3;}
