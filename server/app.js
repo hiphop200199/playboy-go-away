@@ -16,7 +16,7 @@ mongoose.connect(dbURI,{
 
 
 app.post('/add-record',(req,res)=>{
-   
+    res.set('Access-Control-Allow-Origin','https://playboy-go-away-frontend.vercel.app/');
     const record = new Record({
         name:req.body.name,
         score:req.body.score,
@@ -24,11 +24,15 @@ app.post('/add-record',(req,res)=>{
         date:req.body.date
     })
     record.save()
-    .then(result=>console.log(result))
+    .then(result=>{
+        console.log(result)
+        res.send('<h1>Ok!</h1>');
+    })
     .catch(err=>console.log(err))
 })
 
 app.get('/read-records',(req,res)=>{
+    res.set('Access-Control-Allow-Origin','https://playboy-go-away-frontend.vercel.app/');
     Record.find().then(data=>res.json(data)).catch(err=>console.log(err))
 })
 
