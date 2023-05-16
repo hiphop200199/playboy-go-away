@@ -27,7 +27,6 @@ app.post('/add-record',(req,res)=>{
     record.save()
     .then(result=>{
         console.log(result)
-        res.send('<h1>Ok!</h1>');
     })
     .catch(err=>console.log(err))
 })
