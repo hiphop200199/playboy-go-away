@@ -8,6 +8,9 @@ const backToHomepageButton = document.getElementById("back-to-homepage");
 const homepageButton =document.getElementById("homepage");
 const checkboxes = document.querySelectorAll("[type=checkbox]");
 const recordsButton =document.getElementById("records");
+const wow = new Audio('wow.mp3');
+const police = new Audio("police.mp3");
+const ohNo = new Audio('oh-no.mp3');
 let red = Math.random()*255;
 let green = Math.random()*255;
 let blue = Math.random()*255;
@@ -57,6 +60,9 @@ cancelButton.addEventListener("click",function(){
 })
 exitButton.addEventListener("click",()=>window.open("","_self").close());
 finishButton.addEventListener("click",function(){
+    wow.volume=0.6;
+    ohNo.volume=0.6;
+    police.volume=0.6;
     let finishedDate = new Date();
     red = Math.random()*255;
     green = Math.random()*255;
@@ -69,14 +75,17 @@ finishButton.addEventListener("click",function(){
         resultDescription.innerText='優質!沒問題!';
         resultDescription.style.color='rgb(6,223,6)';
         resultScore.style.color='rgb(6,223,6)';
+        setTimeout(()=>{wow.play();},800); 
     }else if(parseInt(counter.innerText)>=3 && parseInt(counter.innerText)<=6){
         resultDescription.innerText='咦?看起來怪怪的喔...';
         resultDescription.style.color='rgb(248,164,7)';
         resultScore.style.color='rgb(248,164,7)';
+        setTimeout(()=>{ohNo.play();},800); 
     }else{
         resultDescription.innerText='渣到無藥可救了..';
         resultDescription.style.color='rgb(255,1,1)';
         resultScore.style.color='rgb(255,1,1)';
+        setTimeout(()=>{police.play();},800); 
     }
     resultScore.innerText = `${personName}的分數是${counter.innerText}分!`;
     counter.style.display='none';
