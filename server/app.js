@@ -1,12 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose'); 
 const Record = require('./models/Record');
+require('dotenv').config({
+    path: './.env'
+  });
 const app = express();
 
 app.use(express.json());
 
-const dbURI = 'mongodb+srv://eric:hiphop200199@cluster0.yqpvasi.mongodb.net/playboy-go-away?retryWrites=true&w=majority';
-mongoose.connect(dbURI,{
+
+mongoose.connect(process.env.MONGODB_URI,{
 	useNewUrlParser: true, 
 	useUnifiedTopology: true 
 }).then(()=>{
