@@ -4,7 +4,7 @@ const Record = require('./models/Record');
 const cors = require('cors');
 const app = express();
 
-app.use(cors({origin:'https://playboy-go-away-frontend.vercel.app'}));
+app.use(cors());
 app.use(express.json());
 
 const dbURI = 'mongodb+srv://eric:hiphop200199@cluster0.yqpvasi.mongodb.net/playboy-go-away?retryWrites=true&w=majority'
@@ -14,7 +14,7 @@ mongoose.connect(dbURI,{
 }).then(()=>console.log('connected to mongodb successed.')).catch((err)=>console.log(err))
 
 app.get('/',(req,res)=>{
-    res.set('Access-Control-Allow-Origin','https://playboy-go-away-frontend.vercel.app');
+   
     res.send('<h1>Backend running.</h1>');
 })
 
@@ -29,8 +29,7 @@ app.post('/add-record',(req,res)=>{
     record.save()
     .then(result=>{
         console.log(result)
-        res.header('Access-Control-Allow-Origin','https://playboy-go-away-frontend.vercel.app');
-        res.header('Access-Control-Allow-Headers','content-type');
+      
         res.send('<h1>Post ok.</h1>');
     })
     .catch(err=>console.log(err))
@@ -39,11 +38,11 @@ app.post('/add-record',(req,res)=>{
 app.get('/read-records',(req,res)=>{
   
     Record.find().then(data=>{
-        res.header('Access-Control-Allow-Origin','https://playboy-go-away-frontend.vercel.app');
+    
         res.json(data);
     }).catch(err=>console.log(err))
 })
 
-
+app.listen(3001);
 
 module.exports=app;
