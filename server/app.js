@@ -1,17 +1,18 @@
 const express = require('express');
 const mongoose = require('mongoose'); 
 const Record = require('./models/Record');
-const cors = require('cors');
 const app = express();
 
-app.use(cors());
 app.use(express.json());
 
-const dbURI = 'mongodb+srv://eric:hiphop200199@cluster0.yqpvasi.mongodb.net/playboy-go-away?retryWrites=true&w=majority'
+const dbURI = 'mongodb+srv://eric:hiphop200199@cluster0.yqpvasi.mongodb.net/playboy-go-away?retryWrites=true&w=majority';
 mongoose.connect(dbURI,{
 	useNewUrlParser: true, 
 	useUnifiedTopology: true 
-}).then(()=>console.log('connected to mongodb successed.')).catch((err)=>console.log(err))
+}).then(()=>{
+    console.log('connected to mongodb successed.');
+    app.listen(3001);
+}).catch((err)=>console.log(err))
 
 app.get('/',(req,res)=>{
    
@@ -43,6 +44,5 @@ app.get('/read-records',(req,res)=>{
     }).catch(err=>console.log(err))
 })
 
-app.listen(3001);
 
 module.exports=app;
