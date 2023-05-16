@@ -37,4 +37,4 @@ app.get('/read-records',(req,res)=>{
     Record.find().then(data=>res.json(data)).catch(err=>console.log(err))
 })
 
-app.listen(443);
+app.listen(3001);
