@@ -79,6 +79,7 @@ body .container .records-table td {
   color: rgb(104, 98, 93);
   border: 1px solid rgb(104, 98, 93);
   text-align: center;
+  background-color: white;
 }
 body .container .info {
   background-color: white;
