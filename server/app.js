@@ -30,16 +30,16 @@ app.post('/add-record',(req,res)=>{
     record.save()
     .then(result=>{
         console.log(result)
-        res.end();
+        res.send('<h1>Post ok.</h1>');
     })
     .catch(err=>console.log(err))
 })
 
 app.get('/read-records',(req,res)=>{
-    res.set('Access-Control-Allow-Origin','https://playboy-go-away-frontend.vercel.app');
+    res.header('Access-Control-Allow-Origin','https://playboy-go-away-frontend.vercel.app');
     Record.find().then(data=>res.json(data)).catch(err=>console.log(err))
 })
 
-app.listen(3001);
+
 
 module.exports=app;
