@@ -16,7 +16,8 @@ mongoose.connect(dbURI,{
 
 
 app.post('/add-record',(req,res)=>{
-    res.set('Access-Control-Allow-Origin','https://playboy-go-away-frontend.vercel.app/');
+    res.header('Access-Control-Allow-Origin','https://playboy-go-away-frontend.vercel.app/');
+    res.header('Access-Control-Allow-Headers','content-type');
     const record = new Record({
         name:req.body.name,
         score:req.body.score,
