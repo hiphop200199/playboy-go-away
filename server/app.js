@@ -15,7 +15,7 @@ mongoose.connect(dbURI,{
 
 app.get('/',(req,res)=>{
     res.set('Access-Control-Allow-Origin','https://playboy-go-away-frontend.vercel.app/');
-    res.end();
+    res.send('<h1>Backend running.</h1>');
 })
 
 app.post('/add-record',(req,res)=>{
