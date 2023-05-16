@@ -65,7 +65,7 @@ body .container .records-table {
 }
 body .container .records-table th {
   padding: 3px 6px;
-  font-size: 26px;
+  font-size: clamp(18px, 2vw, 26px);
   background-color: rgb(255, 115, 1);
   color: white;
   font-weight: 600;
@@ -74,7 +74,7 @@ body .container .records-table th {
 }
 body .container .records-table td {
   padding: 3px 6px;
-  font-size: 22px;
+  font-size: clamp(16px, 1.5vw, 22px);
   font-weight: 500;
   color: rgb(104, 98, 93);
   border: 1px solid rgb(104, 98, 93);
