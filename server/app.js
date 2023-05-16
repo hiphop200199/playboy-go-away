@@ -19,8 +19,7 @@ app.get('/',(req,res)=>{
 })
 
 app.post('/add-record',(req,res)=>{
-    res.header('Access-Control-Allow-Origin','https://playboy-go-away-frontend.vercel.app');
-    res.header('Access-Control-Allow-Headers','content-type');
+  
     const record = new Record({
         name:req.body.name,
         score:req.body.score,
@@ -30,14 +29,19 @@ app.post('/add-record',(req,res)=>{
     record.save()
     .then(result=>{
         console.log(result)
+        res.header('Access-Control-Allow-Origin','https://playboy-go-away-frontend.vercel.app');
+        res.header('Access-Control-Allow-Headers','content-type');
         res.send('<h1>Post ok.</h1>');
     })
     .catch(err=>console.log(err))
 })
 
 app.get('/read-records',(req,res)=>{
-    res.header('Access-Control-Allow-Origin','https://playboy-go-away-frontend.vercel.app');
-    Record.find().then(data=>res.json(data)).catch(err=>console.log(err))
+  
+    Record.find().then(data=>{
+        res.header('Access-Control-Allow-Origin','https://playboy-go-away-frontend.vercel.app');
+        res.json(data);
+    }).catch(err=>console.log(err))
 })
 
 
