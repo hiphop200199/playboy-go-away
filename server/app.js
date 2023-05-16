@@ -1,11 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose'); 
 const Record = require('./models/Record');
-require('dotenv').config({
-    path: './.env'
-  });
+const dotenv = require('dotenv');
 const app = express();
 
+dotenv.config({path:'./.env'});
 app.use(express.json());
 
 
