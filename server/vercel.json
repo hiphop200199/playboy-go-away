@@ -5,7 +5,17 @@
              "src": "app.js", 
              "use": "@vercel/node"
          }
+    ],"headers": [
+      {
+        "source": "/(.*)",
+        "headers": [
+          { "key": "Access-Control-Allow-Origin", "value": "https://playboy-go-away-frontend.vercel.app" },
+          { "key": "Access-Control-Allow-Methods", "value": "GET,POST" },
+          { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
+        ]
+      }
     ],
+  
         "routes": [
          
           { 
