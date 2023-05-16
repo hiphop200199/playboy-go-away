@@ -13,7 +13,10 @@ mongoose.connect(dbURI,{
 	useUnifiedTopology: true 
 }).then(()=>console.log('connected to mongodb successed.')).catch((err)=>console.log(err))
 
-
+app.get('/',(req,res)=>{
+    res.set('Access-Control-Allow-Origin','https://playboy-go-away-frontend.vercel.app/');
+    res.end();
+})
 
 app.post('/add-record',(req,res)=>{
     res.header('Access-Control-Allow-Origin','https://playboy-go-away-frontend.vercel.app/');
@@ -27,6 +30,7 @@ app.post('/add-record',(req,res)=>{
     record.save()
     .then(result=>{
         console.log(result)
+        res.end();
     })
     .catch(err=>console.log(err))
 })
